@@ -40,7 +40,7 @@ def recom(dataframe,name):
     restaurant_indices = [i[0] for i in sim_scores]
     
     recommended = list(dataframe['Name'].iloc[restaurant_indices])
-    st.markdown("Top 10 Restaurants you might like")
+    st.markdown("## Top 10 Restaurants you might like")
 
     title = st.selectbox('Restaurants most simlar', recommended)
     if title in dataframe['Name'].values:
