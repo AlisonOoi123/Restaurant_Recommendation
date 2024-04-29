@@ -35,10 +35,6 @@ Washington["Location"] = Washington["Street Address"] +', '+ Washington["Locatio
 Washington = Washington.drop(['Street Address', ], axis=1)
 
 option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
-details(option)
-
-
-
 
 #Details of every resturant
 def details(dataframe):
