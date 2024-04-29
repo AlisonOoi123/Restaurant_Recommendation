@@ -39,6 +39,35 @@ Washington = Washington.drop(['Street Address', ], axis=1)
 
 option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
 
+st.markdown(
+    "<h1 style='text-align: center; padding: 20px; background-color: #f0f0f0;'>Restaurants</h1>",
+    unsafe_allow_html=True
+)
+if option == 'New Jersey':
+    image = Image.open('Data/New Jersey/nj.png')
+    st.image(image, use_column_width=True)    
+
+elif option == 'New York':
+    image = Image.open('Data/New York/ny.jpg')
+    st.image(image, use_column_width=True)
+
+elif option == 'California':
+    image = Image.open('Data/California/cali.jpg')
+    st.image(image, use_column_width=True)    
+    
+elif option == 'Texas':
+    image = Image.open('Data/Texas/Texas.jpg')
+    st.image(image, use_column_width=True)    
+    
+elif option == 'Washington':
+    image = Image.open('Data/Washington/washington.jpg')
+    st.image(image, use_column_width=True)
+st.markdown(
+    "<h1 style='text-align: center; padding: 20px; background-image: image ; background-size: cover; color: white;'>Restaurants</h1>",
+    unsafe_allow_html=True
+)
+
+
 #Details of every resturant
 def details(dataframe,option):
     city = str(dataframe)
