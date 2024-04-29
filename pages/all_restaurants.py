@@ -3,7 +3,6 @@ import streamlit as st
 from bokeh.models.widgets import Div
 from PIL import Image
 
-st.set_theme('dark')
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
 
