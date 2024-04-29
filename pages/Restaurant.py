@@ -35,7 +35,6 @@ Washington["Location"] = Washington["Street Address"] +', '+ Washington["Locatio
 Washington = Washington.drop(['Street Address', ], axis=1)
 
 
-option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
 
 
 #Details of every resturant
@@ -71,6 +70,34 @@ def details(dataframe):
     new_df = pd.DataFrame(data1)
     data_new["No of Reviews"] = new_df[0]
     data_new["No of Reviews"] = data_new["No of Reviews"].astype(float)
+    
+    option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
+
+    if option == 'New Jersey':
+        image = Image.open('Data/New Jersey/nj.png')
+        st.image(image, use_column_width=True)
+        details(New_Jersey)
+    
+    
+    elif option == 'New York':
+        image = Image.open('Data/New York/ny.jpg')
+        st.image(image, use_column_width=True)
+        details(New_York)
+    
+    elif option == 'California':
+        image = Image.open('Data/California/cali.jpg')
+        st.image(image, use_column_width=True)
+        details(California)
+    
+    elif option == 'Texas':
+        image = Image.open('Data/Texas/Texas.jpg')
+        st.image(image, use_column_width=True)
+        details(Texas)
+    
+    elif option == 'Washington':
+        image = Image.open('Data/Washington/washington.jpg')
+        st.image(image, use_column_width=True)
+        details(Washington)
 
     title = st.selectbox('Select Your Restaurant', (list(dataframe['Name'])))
 
@@ -133,32 +160,6 @@ def details(dataframe):
     st.image(image, use_column_width=True)
 
 
-
-if option == 'New Jersey':
-    image = Image.open('Data/New Jersey/nj.png')
-    st.image(image, use_column_width=True)
-    details(New_Jersey)
-
-
-elif option == 'New York':
-    image = Image.open('Data/New York/ny.jpg')
-    st.image(image, use_column_width=True)
-    details(New_York)
-
-elif option == 'California':
-    image = Image.open('Data/California/cali.jpg')
-    st.image(image, use_column_width=True)
-    details(California)
-
-elif option == 'Texas':
-    image = Image.open('Data/Texas/Texas.jpg')
-    st.image(image, use_column_width=True)
-    details(Texas)
-
-elif option == 'Washington':
-    image = Image.open('Data/Washington/washington.jpg')
-    st.image(image, use_column_width=True)
-    details(Washington)
 
 
 
