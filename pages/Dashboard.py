@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
-st. sidebar.image('Data/App_icon.png')
+st.sidebar.image('Data/App_icon.png')
 
 st.markdown("<h2 style='text-align: center;'><i><u>Some insights...</u></i></h2>", unsafe_allow_html=True)
 st.text("")
