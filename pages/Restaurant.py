@@ -71,23 +71,23 @@ def details(dataframe):
     data_new["No of Reviews"] = data_new["No of Reviews"].astype(float)
     
 
-    if dataframe == 'New Jersey':
+    if str(dataframe) == 'New Jersey':
         image = Image.open('Data/New Jersey/nj.png')
         st.image(image, use_column_width=True)    
     
-    elif dataframe == 'New York':
+    elif str(dataframe) == 'New York':
         image = Image.open('Data/New York/ny.jpg')
         st.image(image, use_column_width=True)
     
-    elif dataframe == 'California':
+    elif str(dataframe) == 'California':
         image = Image.open('Data/California/cali.jpg')
         st.image(image, use_column_width=True)    
         
-    elif dataframe == 'Texas':
+    elif str(dataframe) == 'Texas':
         image = Image.open('Data/Texas/Texas.jpg')
         st.image(image, use_column_width=True)    
         
-    elif dataframe == 'Washington':
+    elif str(dataframe) == 'Washington':
         image = Image.open('Data/Washington/washington.jpg')
         st.image(image, use_column_width=True)
 
