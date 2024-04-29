@@ -63,7 +63,7 @@ elif option == 'Washington':
     image = Image.open('Data/Washington/washington.jpg')
     st.image(image, use_column_width=True)
 st.markdown(
-    "<h1 style='text-align: center; padding: 20px; background-image: image ; background-size: cover; color: white;'>Restaurants</h1>",
+    "<h1 style='text-align: center; padding: 20px; background-image: image ; background-size: cover; color: white;background-color: rgba(0, 0, 0, 0.5);'>Restaurants</h1>",
     unsafe_allow_html=True
 )
 
