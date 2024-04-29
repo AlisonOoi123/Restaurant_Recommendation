@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 
+st.set_theme('dark')
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 
 st. sidebar.image('Data/App_icon.png')
