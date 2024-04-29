@@ -2,11 +2,7 @@ import streamlit as st
 from PIL import Image
 
 
-theme = st.sidebar.radio("Choose Theme", ('Light', 'Dark'))
-if theme == 'Light':
-    st.set_theme('light')
-else:
-    st.set_theme('dark')
+
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 
 st. sidebar.image('Data/App_icon.png')
