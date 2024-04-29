@@ -6,6 +6,8 @@ from PIL import Image
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
 
+st.header("Restaurants")
+
 California = pd.read_csv('Data/California/California.csv', sep=',')
 California["Location"] = California["Street Address"] +', '+ California["Location"]
 California = California.drop(['Street Address',], axis=1)
@@ -106,12 +108,16 @@ def details(dataframe):
 
         #TYPE OF RESTURANT
         Type = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Type'])
-        st.markdown("### Restaurant Category:-")
+        st.subheader("Restaurant Category:-")
+
+        #st.markdown("### Restaurant Category:-")
         st.error(Type)
 
         #LOCATION
         Location = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Location'])
-        st.markdown("### The Address:-")
+        st.subheader("The Address:-")
+
+        #st.markdown("### The Address:-")
         st.success(Location)
 
         #CONTACT DETAILS
@@ -120,7 +126,8 @@ def details(dataframe):
             pass
 
         else:
-            st.markdown("### Contact Details:-")
+            st.subheader("Contact Details:-")
+            #st.markdown("### Contact Details:-")
             st.info('Phone:- '+ contact_no)
 
         
