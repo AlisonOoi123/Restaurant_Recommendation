@@ -123,19 +123,9 @@ def details(dataframe):
             st.markdown("### Contact Details:-")
             st.info('Phone:- '+ contact_no)
 
-        #URL
-        url = (New_Jersey.at[New_Jersey['Name'].eq(title).idxmax(), 'Trip_advisor Url'])
-        st.markdown("### The Website:-")
-        if st.button("Tripadvisor Website"):
-            #js = "window.open" + "('" + url + "')"  # New tab
-            js = "window.location.href" + " = " + "'" + url + "'"  # Current tab
-            html = '<img src onerror="{}">'.format(js)
-            div = Div(text=html)
-            st.bokeh_chart(div)
-
         
     st.text("")
-    image = Image.open('Data/happy_eating.jpg')
+    image = Image.open('Data/enjoy_your_meal.jpg')
     st.image(image, use_column_width=True)
 
 
