@@ -6,6 +6,8 @@ from PIL import Image
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 
+st.set_theme('dark')
+
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
 
