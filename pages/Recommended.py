@@ -8,6 +8,7 @@ from sklearn.metrics.pairwise import linear_kernel
     
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
+st.markdown("<h1 style='text-align: center;'>Recommended</h1>", unsafe_allow_html=True)
 
 df = pd.read_csv("./Data/TripAdvisor_RestauarantRecommendation.csv")
 
@@ -39,6 +40,7 @@ def recom(dataframe,name):
     restaurant_indices = [i[0] for i in sim_scores]
     
     recommended = list(dataframe['Name'].iloc[restaurant_indices])
+    st.subheader("Top 10 Recommended Restaurant")
 
     title = st.selectbox('Restaurants most simlar', recommended)
     if title in dataframe['Name'].values:
@@ -100,8 +102,7 @@ def recom(dataframe,name):
 
 
 
-image = Image.open('Data/top_10.jpg')
-st.image(image, use_column_width=True)
+
 recom(df,name)
 
 
