@@ -8,7 +8,7 @@ from sklearn.metrics.pairwise import linear_kernel
     
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
-st.markdown("<h1 style='text-align: center;'>Recommended</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>Recommend</h1>", unsafe_allow_html=True)
 
 df = pd.read_csv("./Data/TripAdvisor_RestauarantRecommendation.csv")
 
@@ -19,7 +19,7 @@ df = df[df['Comments'].notna()]
 df = df.drop_duplicates(subset='Name')
 df = df.reset_index(drop=True)
 
-name = st.selectbox('Select Your Restaurant', (list(df['Name'].unique())))
+name = st.selectbox('Select the Restaurant you like', (list(df['Name'].unique())))
 
 def recom(dataframe,name):
     dataframe = dataframe.drop(["Trip_advisor Url", "Menu"], axis=1)
@@ -42,7 +42,7 @@ def recom(dataframe,name):
     recommended = list(dataframe['Name'].iloc[restaurant_indices])
     st.subheader("Top 10 Recommended Restaurant")
 
-    title = st.selectbox('Restaurants most simlar', recommended)
+    title = st.selectbox('Restaurants most similar', recommended, format_func=lambda x: f'<div style="width: 200px">{x}</div>', unsafe_allow_html=True)
     if title in dataframe['Name'].values:
         Reviews = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Reviews'])
         st.markdown("### Restaurant Rating:-")
