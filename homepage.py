@@ -14,11 +14,3 @@ st.markdown("Powered by data from TripAdvisor, our app curates recommendations f
 st.markdown("Leveraging Natural Language Processing and Content-Based Recommender Systems, we prioritize user comments to deliver personalized suggestions.")
 st.success("Satisfy your cravings with ease! :fork_and_knife:" ":yum:")
 
-
-st.py_run("Restaurant.py")
-
-# Run second Python file
-st.py_run("Recommended.py")
-
-# Run third Python file
-st.py_run("Dasboard.py")
