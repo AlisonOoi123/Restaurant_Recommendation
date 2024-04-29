@@ -40,9 +40,9 @@ def recom(dataframe,name):
     restaurant_indices = [i[0] for i in sim_scores]
     
     recommended = list(dataframe['Name'].iloc[restaurant_indices])
-    st.subheader("Top 10 Recommended Restaurant")
+    st.markdown("Top 10 Restaurants you might like")
 
-    title = st.selectbox('Restaurants most similar', recommended, format_func=lambda x: f'<div style="width: 200px">{x}</div>', unsafe_allow_html=True)
+    title = st.selectbox('Restaurants most simlar', recommended)
     if title in dataframe['Name'].values:
         Reviews = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Reviews'])
         st.markdown("### Restaurant Rating:-")
