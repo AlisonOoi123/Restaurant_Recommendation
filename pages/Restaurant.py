@@ -166,7 +166,7 @@ elif option == 'California':
     details(California,option)
 
 elif option == 'Texas':
-    details(Texas)
+    details(Texas, option)
 
 elif option == 'Washington':
     details(Washington,option)
