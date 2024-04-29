@@ -37,7 +37,7 @@ Washington = Washington.drop(['Street Address', ], axis=1)
 option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
 
 #Details of every resturant
-def details(dataframe):
+def details(dataframe,option):
     city = str(dataframe)
 
     dataframe = dataframe.drop(["Unnamed: 0", "Trip_advisor Url", "Menu"], axis=1)
@@ -72,23 +72,23 @@ def details(dataframe):
     data_new["No of Reviews"] = data_new["No of Reviews"].astype(float)
     
 
-    if city == 'New_Jersey':
+    if option == 'New Jersey':
         image = Image.open('Data/New Jersey/nj.png')
         st.image(image, use_column_width=True)    
     
-    elif city == 'New_York':
+    elif option == 'New York':
         image = Image.open('Data/New York/ny.jpg')
         st.image(image, use_column_width=True)
     
-    elif city == 'California':
+    elif option == 'California':
         image = Image.open('Data/California/cali.jpg')
         st.image(image, use_column_width=True)    
         
-    elif city == 'Texas':
+    elif option == 'Texas':
         image = Image.open('Data/Texas/Texas.jpg')
         st.image(image, use_column_width=True)    
         
-    elif city == 'Washington':
+    elif option == 'Washington':
         image = Image.open('Data/Washington/washington.jpg')
         st.image(image, use_column_width=True)
 
@@ -156,17 +156,17 @@ def details(dataframe):
 
 
 if option == 'New Jersey':
-    details(New_Jersey)
+    details(New_Jersey, option)
 
 elif option == 'New York':
-    details(New_York)
+    details(New_York,option)
 
 elif option == 'California':
-    details(California)
+    details(California,option)
 
 elif option == 'Texas':
     details(Texas)
 
 elif option == 'Washington':
-    details(Washington)
+    details(Washington,option)
 
