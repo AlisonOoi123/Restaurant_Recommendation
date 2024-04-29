@@ -78,12 +78,12 @@ def details(dataframe):
 
         #REVIEWS
         if Reviews == '4.5':
-            image = Image.open('Data/Ratings/Img4.5.jpg')
+            image = Image.open('Data/Ratings/Img4.5.png')
             st.image(image, use_column_width=True)
 
 
         elif Reviews == '4':
-            image = Image.open('Data/Ratings/Img4.0.jpg')
+            image = Image.open('Data/Ratings/Img4.0.png')
             st.image(image, use_column_width=True)
 
 
