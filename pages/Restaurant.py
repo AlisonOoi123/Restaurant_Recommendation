@@ -34,13 +34,12 @@ Washington = pd.read_csv('Data/Washington/Washington.csv', sep=',')
 Washington["Location"] = Washington["Street Address"] +', '+ Washington["Location"]
 Washington = Washington.drop(['Street Address', ], axis=1)
 
-option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
+option = st.selectbox('Select Your State', ('New York','New Jersey','California', 'Texas', 'Washington'))
 
 
 
 #Details of every resturant
 def details(dataframe,option):
-    city = str(dataframe)
 
     dataframe = dataframe.drop(["Unnamed: 0", "Trip_advisor Url", "Menu"], axis=1)
     data_new = dataframe
