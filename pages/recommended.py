@@ -5,12 +5,6 @@ from bokeh.models.widgets import Div
 from PIL import Image
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
-
-theme = st.sidebar.radio("Choose Theme", ('Light', 'Dark'))
-if theme == 'Light':
-    st.set_theme('light')
-else:
-    st.set_theme('dark')
     
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
