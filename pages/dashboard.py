@@ -4,8 +4,6 @@ import itertools
 import pandas as pd
 import matplotlib.pyplot as plt
 
-st.set_theme('dark')
-
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
 
