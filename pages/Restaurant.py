@@ -6,7 +6,10 @@ from PIL import Image
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st.sidebar.image('Data/App_icon.png')
 
-st.markdown("<h1 style='text-align: center;'>Restaurants</h1>", unsafe_allow_html=True)
+st.markdown(
+    "<h1 style='text-align: center; padding: 20px; background-color: #f0f0f0;'>Restaurants</h1>",
+    unsafe_allow_html=True
+)
 
 California = pd.read_csv('Data/California/California.csv', sep=',')
 California["Location"] = California["Street Address"] +', '+ California["Location"]
