@@ -4,9 +4,9 @@ from bokeh.models.widgets import Div
 from PIL import Image
 
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
-st. sidebar.image('Data/App_icon.png')
+st.sidebar.image('Data/App_icon.png')
 
-st.header("Restaurants")
+st.markdown("<h1 style='text-align: center;'>Restaurants</h1>", unsafe_allow_html=True)
 
 California = pd.read_csv('Data/California/California.csv', sep=',')
 California["Location"] = California["Street Address"] +', '+ California["Location"]
@@ -76,7 +76,7 @@ def details(dataframe):
 
     if title in dataframe['Name'].values:
         Reviews = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Reviews'])
-        st.markdown("### Restaurant Rating:-")
+        st.subheader("Restaurant Rating:-")
 
         #REVIEWS
         if Reviews == '4.5':
@@ -101,7 +101,8 @@ def details(dataframe):
         else:
             comment = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Comments'])
             if comment != "No Comments":
-                st.markdown("### Comments:-")
+                st.subheader("Comments:-")
+
                 st.warning(comment)
             else:
                 pass
@@ -109,15 +110,12 @@ def details(dataframe):
         #TYPE OF RESTURANT
         Type = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Type'])
         st.subheader("Restaurant Category:-")
-
-        #st.markdown("### Restaurant Category:-")
         st.error(Type)
 
         #LOCATION
         Location = (dataframe.at[dataframe['Name'].eq(title).idxmax(), 'Location'])
         st.subheader("The Address:-")
 
-        #st.markdown("### The Address:-")
         st.success(Location)
 
         #CONTACT DETAILS
@@ -127,7 +125,6 @@ def details(dataframe):
 
         else:
             st.subheader("Contact Details:-")
-            #st.markdown("### Contact Details:-")
             st.info('Phone:- '+ contact_no)
 
         
