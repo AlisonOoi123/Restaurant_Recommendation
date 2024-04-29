@@ -20,7 +20,6 @@ df = df.reset_index(drop=True)
 
 name = st.selectbox('Select Your Restaurant', (list(df['Name'].unique())))
 
-#### Wieghted 
 def recom(dataframe,name):
     dataframe = dataframe.drop(["Trip_advisor Url", "Menu"], axis=1)
     
@@ -39,7 +38,6 @@ def recom(dataframe,name):
     sim_scores = sim_scores[1:11]
     restaurant_indices = [i[0] for i in sim_scores]
     
-    ### Resturn the Top 10 most similar restaurants
     recommended = list(dataframe['Name'].iloc[restaurant_indices])
 
     title = st.selectbox('Restaurants most simlar', recommended)
@@ -49,12 +47,12 @@ def recom(dataframe,name):
 
         #REVIEWS
         if Reviews == '4.5 of 5 bubbles':
-            image = Image.open('Data/Ratings/Img4.5.jpg')
+            image = Image.open('Data/Ratings/Img4.5.png')
             st.image(image, use_column_width=True)
 
 
         elif Reviews == '4 of 5 bubbles':
-            image = Image.open('Data/Ratings/Img4.0.jpg')
+            image = Image.open('Data/Ratings/Img4.0.png')
             st.image(image, use_column_width=True)
 
 
