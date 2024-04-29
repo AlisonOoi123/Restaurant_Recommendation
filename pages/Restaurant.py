@@ -34,6 +34,9 @@ Washington = pd.read_csv('Data/Washington/Washington.csv', sep=',')
 Washington["Location"] = Washington["Street Address"] +', '+ Washington["Location"]
 Washington = Washington.drop(['Street Address', ], axis=1)
 
+option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
+details(option)
+
 
 
 
@@ -71,33 +74,26 @@ def details(dataframe):
     data_new["No of Reviews"] = new_df[0]
     data_new["No of Reviews"] = data_new["No of Reviews"].astype(float)
     
-    option = st.selectbox('Select Your State', ('New Jersey','New York','California', 'Texas', 'Washington'))
 
     if option == 'New Jersey':
         image = Image.open('Data/New Jersey/nj.png')
-        st.image(image, use_column_width=True)
-        details(New_Jersey)
-    
+        st.image(image, use_column_width=True)    
     
     elif option == 'New York':
         image = Image.open('Data/New York/ny.jpg')
         st.image(image, use_column_width=True)
-        details(New_York)
     
     elif option == 'California':
         image = Image.open('Data/California/cali.jpg')
-        st.image(image, use_column_width=True)
-        details(California)
-    
+        st.image(image, use_column_width=True)    
+        
     elif option == 'Texas':
         image = Image.open('Data/Texas/Texas.jpg')
-        st.image(image, use_column_width=True)
-        details(Texas)
-    
+        st.image(image, use_column_width=True)    
+        
     elif option == 'Washington':
         image = Image.open('Data/Washington/washington.jpg')
         st.image(image, use_column_width=True)
-        details(Washington)
 
     title = st.selectbox('Select Your Restaurant', (list(dataframe['Name'])))
 
