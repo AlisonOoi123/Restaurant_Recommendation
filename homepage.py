@@ -7,7 +7,7 @@ st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 
 st. sidebar.image('Data/App_icon.png')
 
-st.Title("Discover the best places to eat near you!")
+st.title("Discover the best places to eat near you!")
 image = Image.open('Data/Food.png')
 st.image(image, use_column_width=True)
 st.markdown("Powered by data from TripAdvisor, our app curates recommendations from 20 cities across New York, New Jersey, California, Texas, and Washington. Find the top 10 restaurants similar to your favorites.")
