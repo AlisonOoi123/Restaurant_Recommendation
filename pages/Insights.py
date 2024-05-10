@@ -38,7 +38,6 @@ with col2:
     Ever wondered what cuisines people are loving the most? Dive into our interactive visualization to explore the top 10 most popular types of cuisines based on our data. From Italian to Japanese, uncover the culinary delights that are capturing diners' hearts.
     """)
     fig, ax = plt.subplots()
-    sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako", ax=ax)
     fig.set_facecolor('#121212') 
 
     ax.set_ylabel('Total Weighted Ratings', color='white')
@@ -67,7 +66,6 @@ with col1:
     Curious about which states boast the highest number of restaurants? Our bar chart breaks down the restaurant scene across different states, giving you insights into where culinary diversity thrives.
     """)
     fig, ax = plt.subplots()
-    sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako", ax=ax)
     fig.set_facecolor('#121212') 
 
     ax.set_ylabel('Total Weighted Ratings', color='white')
