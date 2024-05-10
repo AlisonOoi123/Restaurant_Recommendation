@@ -8,6 +8,9 @@ from sklearn.metrics.pairwise import linear_kernel
     
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
+
+st.markdown("<h1 style='text-align: center;'>Recommended</h1>", unsafe_allow_html=True)
+
 st.markdown("""
 ### Welcome to Restaurant Recommender!
 
