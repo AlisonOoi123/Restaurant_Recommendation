@@ -61,7 +61,7 @@ for i in ['top','right']:
 plt.gcf().set_size_inches(7, 5)
 
 # Set the background color
-ax.set_facecolor('#000000')  # Change '#f0f0f0' to the color you prefer
+ax.set_facecolor('#000000')  # Change '#000000' to the color you prefer
 
 with col1:
     st.markdown("""
