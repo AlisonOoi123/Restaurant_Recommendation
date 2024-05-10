@@ -45,7 +45,7 @@ ax.set_ylabel('No of Restaurants')
 ax.set_xlabel('State')
 for i in ['top', 'right']:
     ax.spines[i].set_visible(False)
-plt.gcf().set_size_inches(7, 5)
+plt.gcf().set_size_inches(5, 4)  # Adjust plot size
 
 st.markdown("""
 ## No of Restaurants per State
@@ -65,7 +65,7 @@ avg_wt_ratings = pd.DataFrame({'State': labels, 'Weighted Average Ratings': aver
 
 fig, ax = plt.subplots()
 sns.barplot(x='State', y="Weighted Average Ratings", data=avg_wt_ratings, palette="PuOr", ax=ax)
-plt.gcf().set_size_inches(7, 7)
+plt.gcf().set_size_inches(5, 4)  # Adjust plot size
 
 st.markdown("""
 ## State with the Best Restaurant
@@ -79,7 +79,7 @@ total_wt_ratings = pd.DataFrame({'State': labels, 'Total Weighted Ratings': tota
 
 fig, ax = plt.subplots()
 sns.barplot(x='State', y="Total Weighted Ratings", data=total_wt_ratings, palette="mako", ax=ax)
-plt.gcf().set_size_inches(7, 7)
+plt.gcf().set_size_inches(5, 4)  # Adjust plot size
 
 st.markdown("""
 ## Best State For Food
@@ -94,7 +94,7 @@ total_wt_ratings = total_wt_ratings.sort_values(by=['Total Weighted Ratings'], a
 
 fig, ax = plt.subplots()
 sns.barplot(x='City', y="Total Weighted Ratings", data=total_wt_ratings, palette="flare", ax=ax)
-plt.gcf().set_size_inches(7, 7)
+plt.gcf().set_size_inches(5, 4)  # Adjust plot size
 
 st.markdown("""
 ## Top 5 Cities For Food
