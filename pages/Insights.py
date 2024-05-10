@@ -66,11 +66,9 @@ plt.gcf().set_size_inches(7, 5)
 fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
 
 # Change text color
-plt.setp(ax.get_xticklabels(), color='#FFFFFF')
-plt.setp(ax.get_yticklabels(), color='#FFFFFF')
-ax.xaxis.label.set_color('#FFFFFF')
-ax.yaxis.label.set_color('#FFFFFF')
-ax.title.set_color('#FFFFFF')
+for bar in ax.patches:
+    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height(), int(bar.get_height()), 
+            ha='center', va='bottom', color='#FFFFFF')
 
 with col1:
     st.markdown("""
