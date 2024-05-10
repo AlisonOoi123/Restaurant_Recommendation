@@ -138,7 +138,7 @@ def recom(dataframe,name):
     
 
     st.text("")
-    image = Image.open('Data/enjoy_your_meal.jpg')
+    image = Image.open('Data/food_2.jpg')
     st.image(image, use_column_width=True)
 
 
