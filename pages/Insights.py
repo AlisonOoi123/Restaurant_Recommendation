@@ -66,12 +66,13 @@ with col1:
     ## State with the Best Restaurant
     Delve into our analysis of the state with the best restaurant. We've calculated weighted average ratings to determine which state offers the ultimate dining experience, combining both quality and quantity.
     """)
-    sns.barplot(x='State', y="weighted_ratings", data=state_avg_ratings, palette="PuOr")
+    fig, ax = plt.subplots()
+    sns.barplot(x='State', y="weighted_ratings", data=state_avg_ratings, palette="PuOr", ax=ax)
+    ax.set_ylabel('Weighted Average Ratings')
+    ax.set_xlabel('State')
     plt.xticks(rotation=45)
-    plt.xlabel('State')
-    plt.ylabel('Weighted Average Ratings')
     plt.tight_layout()
-    st.pyplot()
+    st.pyplot(fig)
 
 # Best state for food
 state_total_ratings = df.groupby('State')['weighted_ratings'].sum().reset_index()
@@ -80,12 +81,13 @@ with col2:
     ## Best State For Food
     Looking for the ultimate foodie destination? Explore our findings on the best state for food based on total weighted ratings. Whether you're craving gourmet cuisine or down-home cooking, this state promises a gastronomic adventure.
     """)
-    sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako")
+    fig, ax = plt.subplots()
+    sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako", ax=ax)
+    ax.set_ylabel('Total Weighted Ratings')
+    ax.set_xlabel('State')
     plt.xticks(rotation=45)
-    plt.xlabel('State')
-    plt.ylabel('Total Weighted Ratings')
     plt.tight_layout()
-    st.pyplot()
+    st.pyplot(fig)
 
 # Top 5 cities for food
 df['City'] = [",".join(i.split(",")[:-1]) for i in df.Location]
@@ -95,9 +97,10 @@ with col2:
     ## Top 5 Cities For Food
     Discover the top 5 cities that are culinary hotspots. Our analysis reveals the cities where food lovers can indulge in the finest dining experiences, from bustling metropolises to charming culinary gems.
     """)
-    sns.barplot(x='City', y="weighted_ratings", data=city_total_ratings, palette="flare")
+    fig, ax = plt.subplots()
+    sns.barplot(x='City', y="weighted_ratings", data=city_total_ratings, palette="flare", ax=ax)
+    ax.set_ylabel('Total Weighted Ratings')
+    ax.set_xlabel('City')
     plt.xticks(rotation=45)
-    plt.xlabel('City')
-    plt.ylabel('Total Weighted Ratings')
     plt.tight_layout()
-    st.pyplot()
+    st.pyplot(fig)
