@@ -35,7 +35,6 @@ ax.set_facecolor('#121212')
 types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
 
 ax.set_ylabel('Cuisine Types', color='white')
-ax.set_xlabel('Vegetarian Friendly', color='white')
 ax.tick_params(colors='white')
 ax.title.set_color('white')
 with col2:
@@ -43,6 +42,8 @@ with col2:
     ### 10 Most Popular Types of Cuisines
     Ever wondered what cuisines people are loving the most? Dive into our interactive visualization to explore the top 10 most popular types of cuisines based on our data. From Italian to Japanese, uncover the culinary delights that are capturing diners' hearts.
     """)
+    plt.tight_layout()
+
     st.pyplot(fig)
 
 # Visualization for number of restaurants per state
@@ -65,6 +66,8 @@ with col1:
     ## No of Restaurants per State
     Curious about which states boast the highest number of restaurants? Our bar chart breaks down the restaurant scene across different states, giving you insights into where culinary diversity thrives.
     """)
+    plt.tight_layout()
+
     st.pyplot(fig)
 
 # State with the best restaurant
