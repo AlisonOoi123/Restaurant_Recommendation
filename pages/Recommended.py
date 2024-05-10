@@ -8,7 +8,40 @@ from sklearn.metrics.pairwise import linear_kernel
     
 st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st. sidebar.image('Data/App_icon.png')
-st.markdown("<h1 style='text-align: center;'>Recommend</h1>", unsafe_allow_html=True)
+st.markdown("""
+### Welcome to Restaurant Recommender!
+
+Looking for the perfect place to dine? Look no further! Our Restaurant Recommender is here to help you discover the finest dining experiences tailored to your taste.
+
+### How It Works:
+
+1. **Select Your Favorite Restaurant:**
+   Choose from a list of renowned restaurants that pique your interest.
+
+2. **Explore Similar Gems:**
+   Our advanced recommendation system analyzes customer reviews and ratings to suggest similar restaurants you might love.
+
+3. **Discover Your Next Culinary Adventure:**
+   Dive into detailed information about each recommended restaurant, including ratings, reviews, cuisine types, locations, and contact details.
+
+4. **Enjoy Your Meal:**
+   With our recommendations in hand, savor a delightful dining experience at your chosen restaurant!
+
+### Why Choose Us:
+
+- **Personalized Recommendations:**
+  Our algorithm ensures tailored suggestions based on your preferences and favorite restaurants.
+
+- **Comprehensive Information:**
+  Get all the details you need, from ratings and reviews to contact information and restaurant categories.
+
+- **User-Friendly Interface:**
+  Our streamlined interface makes it easy to navigate and find your next dining destination effortlessly.
+
+### Start Your Culinary Journey Now!
+
+Begin exploring the diverse culinary landscape and uncover hidden gastronomic treasures with Restaurant Recommender.
+""")
 
 df = pd.read_csv("./Data/TripAdvisor_RestauarantRecommendation.csv")
 
