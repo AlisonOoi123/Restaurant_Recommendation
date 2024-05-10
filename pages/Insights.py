@@ -33,8 +33,10 @@ fig.set_facecolor('#121212')
 ax.set_facecolor('#121212')
 
 types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
+sns.barplot(x='City', y="weighted_ratings", data=types_counts, palette="flare", ax=ax)
+
 ax.set_ylabel('Cuisine Types', color='white')
-ax.set_ylabel('Vegetarian Friendly', color='white')
+ax.set_xlabel('Vegetarian Friendly', color='white')
 ax.tick_params(colors='white')
 ax.title.set_color('white')
 with col2:
