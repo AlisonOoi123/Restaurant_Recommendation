@@ -21,7 +21,6 @@ df = df.drop([1744, 2866])
 df = df.reset_index(drop=True)
 df.Comments = df.Comments.fillna('')
 df.Type = df.Type.fillna(df.Type.value_counts().index[0])
-fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
 
 
 # Sidebar and main content layout
@@ -88,6 +87,8 @@ with col2:
     """)
     fig, ax = plt.subplots()
     sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako", ax=ax)
+    fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
+
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('State', color='white')
     ax.tick_params(colors='white')
