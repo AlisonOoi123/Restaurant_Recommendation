@@ -52,7 +52,10 @@ ax.set_xlabel('State')
 for i in ['top','right']:
     ax.spines[i].set_visible(False)
 plt.gcf().set_size_inches(7, 5)
-
+st.markdown("""
+# Welcome to our restaurant insights page!
+Discover fascinating trends and data-driven analysis of the culinary landscape. From popular cuisine types to the best states and cities for food lovers, we've got you covered.
+""")
 
 with col1:
     st.markdown("<h3 style='text-align: center;'>No of Restaurants per State</h3>", unsafe_allow_html=True)
