@@ -29,6 +29,9 @@ col1, col2 = st.columns([1, 2])
 types = list(itertools.chain(*[t.split(",") for t in df.Type if isinstance(t, str)]))
 types_counts = pd.Series(types).value_counts()[:10]
 fig, ax = plt.subplots()
+fig.set_facecolor('#121212') 
+ax.set_facecolor('#121212')
+
 types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
 ax.set_ylabel('Cuisine Types')
 with col2:
@@ -43,6 +46,8 @@ df['State'] = [i.split(",")[-1].split(" ")[1] for i in df.Location]
 df = df.drop(df[df.State == ''].index[0])
 state_counts = df['State'].value_counts()
 fig, ax = plt.subplots()
+fig.set_facecolor('#121212') 
+ax.set_facecolor('#121212')
 sns.barplot(x=state_counts.index, y=state_counts, palette="rocket", ax=ax)
 ax.set_ylabel('No of Restaurants')
 ax.set_xlabel('State')
@@ -67,6 +72,8 @@ with col1:
     Delve into our analysis of the state with the best restaurant. We've calculated weighted average ratings to determine which state offers the ultimate dining experience, combining both quality and quantity.
     """)
     fig, ax = plt.subplots()
+    fig.set_facecolor('#121212') 
+    ax.set_facecolor('#121212')
     sns.barplot(x='State', y="weighted_ratings", data=state_avg_ratings, palette="PuOr", ax=ax)
     ax.set_ylabel('Weighted Average Ratings', color='white')
     ax.set_xlabel('State', color='white')
@@ -85,6 +92,8 @@ with col2:
     Looking for the ultimate foodie destination? Explore our findings on the best state for food based on total weighted ratings. Whether you're craving gourmet cuisine or down-home cooking, this state promises a gastronomic adventure.
     """)
     fig, ax = plt.subplots()
+    fig.set_facecolor('#121212') 
+    ax.set_facecolor('#121212')
     sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako", ax=ax)
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('State', color='white')
@@ -104,6 +113,8 @@ with col2:
     Discover the top 5 cities that are culinary hotspots. Our analysis reveals the cities where food lovers can indulge in the finest dining experiences, from bustling metropolises to charming culinary gems.
     """)
     fig, ax = plt.subplots()
+    fig.set_facecolor('#121212') 
+    ax.set_facecolor('#121212')
     sns.barplot(x='City', y="weighted_ratings", data=city_total_ratings, palette="flare", ax=ax)
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('City', color='white')
