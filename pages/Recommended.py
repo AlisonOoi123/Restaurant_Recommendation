@@ -44,7 +44,7 @@ Begin exploring the diverse culinary landscape and uncover hidden gastronomic tr
 ↓
 """)
 
-image = Image.open('Data/Ratings/food_cover.jpeg')
+image = Image.open('Data/food_cover.jpeg')
 st.image(image, use_column_width=True)
 st.markdown(""" ### Select Restaurant """)
 
