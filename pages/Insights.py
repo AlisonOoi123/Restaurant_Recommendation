@@ -69,7 +69,7 @@ with col1:
     """)
     fig, ax = plt.subplots()
     fig.set_facecolor('#121212') 
-        sns.barplot(x='State', y="weighted_ratings", data=state_counts, palette="mako", ax=ax)
+    sns.barplot(x='State', y="weighted_ratings", data=state_counts, palette="mako", ax=ax)
 
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('State', color='white')
