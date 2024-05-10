@@ -33,6 +33,8 @@ fig, ax = plt.subplots()
 ax = pd.Series(series).value_counts()[:10].plot(kind='pie', shadow=True,  cmap=plt.get_cmap('Spectral'))
 ax.set_ylabel('Cuisine Types')
 
+# Change text color
+plt.setp(ax, textprops={'color': '#FFFFFF'})
 
 with col2:
            
@@ -62,7 +64,13 @@ plt.gcf().set_size_inches(7, 5)
 
 # Set the background color of the entire plot
 fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
-ax.set_facecolor('#000000')
+
+# Change text color
+plt.setp(ax.get_xticklabels(), color='#FFFFFF')
+plt.setp(ax.get_yticklabels(), color='#FFFFFF')
+ax.xaxis.label.set_color('#FFFFFF')
+ax.yaxis.label.set_color('#FFFFFF')
+ax.title.set_color('#FFFFFF')
 
 with col1:
     st.markdown("""
