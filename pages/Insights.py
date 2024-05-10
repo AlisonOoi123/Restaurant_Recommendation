@@ -32,14 +32,15 @@ fig, ax = plt.subplots()
 fig.set_facecolor('#121212') 
 ax.set_facecolor('#121212')
 
-types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
-    
+pie = types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
+for text in pie.texts:
+    text.set_color('white')
+  
     
 ax.set_ylabel('')
 ax.tick_params(colors='white')
 ax.title.set_color('white')
-plt.xticks(rotation=45, color='white')  
-plt.yticks(rotation=45, color='white')  
+
 
 with col2:
     st.markdown("""
