@@ -62,6 +62,7 @@ plt.gcf().set_size_inches(7, 5)
 
 # Set the background color of the entire plot
 fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
+ax.set_facecolor('#000000')
 
 with col1:
     st.markdown("""
