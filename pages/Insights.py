@@ -61,6 +61,8 @@ ax.set_xlabel('State', color='white')
 ax.tick_params(color='white')
 ax.title.set_color('white')
 plt.xticks(rotation=45, color='white')  
+plt.yticks(rotation=45, color='white')  
+
 
 
 
