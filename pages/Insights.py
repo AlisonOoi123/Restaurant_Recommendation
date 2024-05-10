@@ -52,6 +52,8 @@ df['State'] = [i.split(",")[-1].split(" ")[1] for i in df.Location]
 df = df.drop(df[df.State == ''].index[0])
 state_counts = df['State'].value_counts()
 fig, ax = plt.subplots()
+sns.barplot(x=state_counts.index, y=state_counts, palette="rocket", ax=ax)
+
 fig.set_facecolor('#121212') 
 ax.set_facecolor('#121212')
 ax.set_ylabel('No of Restaurants', color='white')
