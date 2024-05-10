@@ -35,7 +35,10 @@ ax.set_ylabel('Cuisine Types')
 
 
 with col2:
-    st.markdown("<h3 style='text-align: center;'>10 Most Popular Types of Cuisines</h3>", unsafe_allow_html=True)
+           
+    st.markdown("""
+    Ever wondered what cuisines people are loving the most? Dive into our interactive visualization to explore the top 10 most popular types of cuisines based on our data. From Italian to Japanese, uncover the culinary delights that are capturing diners' hearts.
+    """)
     st.pyplot(fig)
 
 ### Seperating State, City and Zip Code from Location Column
@@ -58,7 +61,10 @@ plt.gcf().set_size_inches(7, 5)
 
 
 with col1:
-    st.markdown("<h3 style='text-align: center;'>No of Restaurants per State</h3>", unsafe_allow_html=True)
+    st.markdown("""
+    ## No of Restaurants per State
+    Curious about which states boast the highest number of restaurants? Our bar chart breaks down the restaurant scene across different states, giving you insights into where culinary diversity thrives.
+    """)
     st.pyplot(fig)
 
 
@@ -77,7 +83,10 @@ plot = sns.catplot(x='State', y="Weighted Average Ratings", kind="bar", data=avg
 plt.gcf().set_size_inches(7, 7)
 
 with col1:
-    st.markdown("<h3 style='text-align: center;'>State with the best Restaurant</h3>", unsafe_allow_html=True)
+    st.markdown("""
+    ## State with the Best Restaurant
+    Delve into our analysis of the state with the best restaurant. We've calculated weighted average ratings to determine which state offers the ultimate dining experience, combining both quality and quantity.
+    """)
     st.pyplot(plot)
 
 labels = df.State.unique().flatten()
@@ -87,8 +96,12 @@ plot = sns.catplot(x='State', y="Total Weighted Ratings", kind="bar", data=total
 plt.gcf().set_size_inches(7, 7)
 
 with col2:
-    st.markdown("<h3 style='text-align: center;'>Best State For Food</h3>", unsafe_allow_html=True)
+    st.markdown("""
+    ## Best State For Food
+    Looking for the ultimate foodie destination? Explore our findings on the best state for food based on total weighted ratings. Whether you're craving gourmet cuisine or down-home cooking, this state promises a gastronomic adventure.
+    """)
     st.text("")
+
     st.pyplot(plot)
 
 
@@ -100,5 +113,8 @@ total_wt_ratings = total_wt_ratings.sort_values(by=['Total Weighted Ratings'],as
 plot = sns.catplot(x='City', y="Total Weighted Ratings", kind="bar", data=total_wt_ratings, palette="flare")
 plt.gcf().set_size_inches(7, 7)
 with col3:
-    st.markdown("<h3 style='text-align: center;'>Top 5 Cities For Food</h3>", unsafe_allow_html=True)
+    st.markdown("""
+    ## Top 5 Cities For Food
+    Discover the top 5 cities that are culinary hotspots. Our analysis reveals the cities where food lovers can indulge in the finest dining experiences, from bustling metropolises to charming culinary gems.
+    """)
     st.pyplot(plot)
