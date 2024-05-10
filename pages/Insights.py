@@ -33,8 +33,6 @@ fig, ax = plt.subplots()
 ax = pd.Series(series).value_counts()[:10].plot(kind='pie', shadow=True,  cmap=plt.get_cmap('Spectral'))
 ax.set_ylabel('Cuisine Types')
 
-# Change text color
-plt.setp(ax, textprops={'color': '#FFFFFF'})
 
 with col2:
            
@@ -62,13 +60,6 @@ for i in ['top','right']:
     ax.spines[i].set_visible(False)
 plt.gcf().set_size_inches(7, 5)
 
-# Set the background color of the entire plot
-fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
-
-# Change text color
-for bar in ax.patches:
-    ax.text(bar.get_x() + bar.get_width()/2, bar.get_height(), int(bar.get_height()), 
-            ha='center', va='bottom', color='#FFFFFF')
 
 with col1:
     st.markdown("""
