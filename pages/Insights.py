@@ -60,8 +60,8 @@ for i in ['top','right']:
     ax.spines[i].set_visible(False)
 plt.gcf().set_size_inches(7, 5)
 
-# Set the background color
-ax.set_facecolor('#000000')  # Change '#000000' to the color you prefer
+# Set the background color of the entire plot
+fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
 
 with col1:
     st.markdown("""
