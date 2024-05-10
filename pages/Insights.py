@@ -4,63 +4,51 @@ import itertools
 import pandas as pd
 import matplotlib.pyplot as plt
 
+# Set page layout and sidebar
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 st.sidebar.image('Data/App_icon.png')
 
+# Main page title
 st.markdown("""
 # Welcome to our restaurant insights page!
 Discover fascinating trends and data-driven analysis of the culinary landscape. From popular cuisine types to the best states and cities for food lovers, we've got you covered.
 """)
-st.text("")
 
+# Load data
 df = pd.read_csv("./Data/TripAdvisor_RestauarantRecommendation.csv")
-df = df.drop(['Contact Number', 'Trip_advisor Url',
-       'Menu'],axis=1)
-df = df.drop([1744,2866])
+df = df.drop(['Contact Number', 'Trip_advisor Url', 'Menu'], axis=1)
+df = df.drop([1744, 2866])
 df = df.reset_index(drop=True)
 df.Comments = df.Comments.fillna('')
 df.Type = df.Type.fillna(df.Type.value_counts().index[0])
 
-col1, col2 = st.columns(2)
+# Sidebar and main content layout
+col1, col2 = st.columns([1, 2])
 
-types = []
-for i in range(len(df)):
-    if type(df.Type[i]) == str:
-        types.append(df.Type[i].split(",")) 
-flat_list = list(itertools.chain(*types))
-series = pd.Series(flat_list)
+# Visualization for popular cuisine types
+types = list(itertools.chain(*[t.split(",") for t in df.Type if isinstance(t, str)]))
+types_counts = pd.Series(types).value_counts()[:10]
 fig, ax = plt.subplots()
-ax = pd.Series(series).value_counts()[:10].plot(kind='pie', shadow=True,  cmap=plt.get_cmap('Spectral'))
+types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
 ax.set_ylabel('Cuisine Types')
-
-
 with col2:
-           
     st.markdown("""
     ### 10 Most Popular Types of Cuisines
     Ever wondered what cuisines people are loving the most? Dive into our interactive visualization to explore the top 10 most popular types of cuisines based on our data. From Italian to Japanese, uncover the culinary delights that are capturing diners' hearts.
     """)
     st.pyplot(fig)
 
-### Seperating State, City and Zip Code from Location Column
+# Visualization for number of restaurants per state
 df['State'] = [i.split(",")[-1].split(" ")[1] for i in df.Location]
-df['ZipCode'] = [i.split(",")[-1].split(" ")[-1] for i in df.Location]
-df['City'] = [",".join(i.split(",")[:-1]) for i in df.Location]
-df = df.drop(['Location'],axis=1)
-df = df.drop(df[df.State==''].index[0])
-df.State.value_counts()
-
-
-# ax = df.State.value_counts().plot(kind="bar", color="Purple",  figsize=(10,5))
+df = df.drop(df[df.State == ''].index[0])
+state_counts = df['State'].value_counts()
 fig, ax = plt.subplots()
-ax = sns.barplot(x=df['State'].value_counts().index, y = df['State'].value_counts(),palette="rocket")
+sns.barplot(x=state_counts.index, y=state_counts, palette="rocket", ax=ax)
 ax.set_ylabel('No of Restaurants')
 ax.set_xlabel('State')
-for i in ['top','right']:
-    ax.spines[i].set_visible(False)
+for spine in ['top', 'right']:
+    ax.spines[spine].set_visible(False)
 plt.gcf().set_size_inches(7, 5)
-
-
 with col1:
     st.markdown("""
     ## No of Restaurants per State
@@ -68,54 +56,48 @@ with col1:
     """)
     st.pyplot(fig)
 
-
-### Converting the string values to float/int values
-df['Reviews'] = [float(i.split(" ")[0]) for i in df.Reviews]
-df['No of Reviews'] = [int(i.split(" ")[0].replace(",","")) for i in df['No of Reviews']]
-### Weighted Ratings - No of Reviewers * Average Ratings
-df['weighted_ratings'] = df.Reviews*df['No of Reviews']
-labels = df.State.unique().flatten()
-average_vote_share_list = [df[df.State==i].weighted_ratings.max() for i in labels]
-avg_wt_ratings = pd.DataFrame({'State':labels, 'Weighted Average Ratings': average_vote_share_list})
-
-st.text("")
-col1, col2, col3 = st.columns(3)
-plot = sns.catplot(x='State', y="Weighted Average Ratings", kind="bar", data=avg_wt_ratings, palette="PuOr")
-plt.gcf().set_size_inches(7, 7)
-
+# State with the best restaurant
+df['Reviews'] = [float(review.split(" ")[0]) for review in df.Reviews]
+df['No of Reviews'] = [int(reviews.split(" ")[0].replace(",", "")) for reviews in df['No of Reviews']]
+df['weighted_ratings'] = df.Reviews * df['No of Reviews']
+state_avg_ratings = df.groupby('State')['weighted_ratings'].max().reset_index()
 with col1:
     st.markdown("""
     ## State with the Best Restaurant
     Delve into our analysis of the state with the best restaurant. We've calculated weighted average ratings to determine which state offers the ultimate dining experience, combining both quality and quantity.
     """)
-    st.pyplot(plot)
+    sns.barplot(x='State', y="weighted_ratings", data=state_avg_ratings, palette="PuOr")
+    plt.xticks(rotation=45)
+    plt.xlabel('State')
+    plt.ylabel('Weighted Average Ratings')
+    plt.tight_layout()
+    st.pyplot()
 
-labels = df.State.unique().flatten()
-total_vote_share_list = [df[df.State==i].weighted_ratings.sum() for i in labels]
-total_wt_ratings = pd.DataFrame({'State':labels, 'Total Weighted Ratings': total_vote_share_list})
-plot = sns.catplot(x='State', y="Total Weighted Ratings", kind="bar", data=total_wt_ratings, palette="mako")
-plt.gcf().set_size_inches(7, 7)
-
+# Best state for food
+state_total_ratings = df.groupby('State')['weighted_ratings'].sum().reset_index()
 with col2:
     st.markdown("""
     ## Best State For Food
     Looking for the ultimate foodie destination? Explore our findings on the best state for food based on total weighted ratings. Whether you're craving gourmet cuisine or down-home cooking, this state promises a gastronomic adventure.
     """)
-    st.text("")
+    sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako")
+    plt.xticks(rotation=45)
+    plt.xlabel('State')
+    plt.ylabel('Total Weighted Ratings')
+    plt.tight_layout()
+    st.pyplot()
 
-    st.pyplot(plot)
-
-
-
-labels = df.City.unique().flatten()
-total_vote_share_list = [df[df.City==i].weighted_ratings.sum() for i in labels]
-total_wt_ratings = pd.DataFrame({'City':labels, 'Total Weighted Ratings': total_vote_share_list})
-total_wt_ratings = total_wt_ratings.sort_values(by=['Total Weighted Ratings'],ascending=False).head(5)
-plot = sns.catplot(x='City', y="Total Weighted Ratings", kind="bar", data=total_wt_ratings, palette="flare")
-plt.gcf().set_size_inches(7, 7)
-with col3:
+# Top 5 cities for food
+df['City'] = [",".join(i.split(",")[:-1]) for i in df.Location]
+city_total_ratings = df.groupby('City')['weighted_ratings'].sum().reset_index().sort_values(by='weighted_ratings', ascending=False).head(5)
+with col2:
     st.markdown("""
     ## Top 5 Cities For Food
     Discover the top 5 cities that are culinary hotspots. Our analysis reveals the cities where food lovers can indulge in the finest dining experiences, from bustling metropolises to charming culinary gems.
     """)
-    st.pyplot(plot)
+    sns.barplot(x='City', y="weighted_ratings", data=city_total_ratings, palette="flare")
+    plt.xticks(rotation=45)
+    plt.xlabel('City')
+    plt.ylabel('Total Weighted Ratings')
+    plt.tight_layout()
+    st.pyplot()
