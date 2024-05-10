@@ -15,12 +15,6 @@ st.markdown("""
 
 <p style='text-align: justify;'>Discover hidden gems, indulge in mouthwatering dishes, and immerse yourself in the vibrant food culture of your chosen destination. From cozy cafes to upscale fine dining establishments, there's something for every palate and occasion.</p>
 
-<p style='text-align: justify;'>Join our community of food enthusiasts and share your own dining experiences, recommendations, and culinary adventures. Whether you're a seasoned foodie or just starting your culinary journey, there's always something new to discover.</p>
-""", unsafe_allow_html=True)
-
-st.markdown("<h3 style='text-align: center;'>Explore Our Recommendations Today!</h3>", unsafe_allow_html=True)
-
-
 
 California = pd.read_csv('Data/California/California.csv', sep=',')
 California["Location"] = California["Street Address"] +', '+ California["Location"]
