@@ -7,8 +7,6 @@ st.set_page_config(layout='centered', initial_sidebar_state='expanded')
 st.sidebar.image('Data/App_icon.png')
 st.markdown("<h1 style='text-align: center;'>Restaurants</h1>", unsafe_allow_html=True)
 
-st.markdown("<h2 style='text-align: center;'>Welcome to the Culinary Adventure!</h2>", unsafe_allow_html=True)
-
 st.markdown("""
 <p style='text-align: justify;'>Embark on a gastronomic journey with our curated selection of restaurants across various states. Whether you're craving the bold flavors of Texas barbecue, the diverse cuisine of California, or the iconic dishes of New York, we've got you covered. Our app is your passport to culinary exploration, delivering personalized recommendations based on real user reviews and ratings.</p>
 
