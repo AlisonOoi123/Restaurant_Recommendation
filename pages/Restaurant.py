@@ -8,6 +8,20 @@ st.sidebar.image('Data/App_icon.png')
 st.markdown("<h1 style='text-align: center;'>Restaurants</h1>", unsafe_allow_html=True)
 
 
+st.markdown("<h2 style='text-align: center;'>Welcome to the Culinary Adventure!</h2>", unsafe_allow_html=True)
+
+st.markdown("""
+<p style='text-align: justify;'>Embark on a gastronomic journey with our curated selection of restaurants across various states. Whether you're craving the bold flavors of Texas barbecue, the diverse cuisine of California, or the iconic dishes of New York, we've got you covered. Our app is your passport to culinary exploration, delivering personalized recommendations based on real user reviews and ratings.</p>
+
+<p style='text-align: justify;'>Discover hidden gems, indulge in mouthwatering dishes, and immerse yourself in the vibrant food culture of your chosen destination. From cozy cafes to upscale fine dining establishments, there's something for every palate and occasion.</p>
+
+<p style='text-align: justify;'>Join our community of food enthusiasts and share your own dining experiences, recommendations, and culinary adventures. Whether you're a seasoned foodie or just starting your culinary journey, there's always something new to discover.</p>
+""", unsafe_allow_html=True)
+
+st.markdown("<h3 style='text-align: center;'>Explore Our Recommendations Today!</h3>", unsafe_allow_html=True)
+
+
+
 California = pd.read_csv('Data/California/California.csv', sep=',')
 California["Location"] = California["Street Address"] +', '+ California["Location"]
 California = California.drop(['Street Address',], axis=1)
