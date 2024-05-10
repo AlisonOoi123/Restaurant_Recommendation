@@ -37,8 +37,10 @@ with col2:
     ### 10 Most Popular Types of Cuisines
     Ever wondered what cuisines people are loving the most? Dive into our interactive visualization to explore the top 10 most popular types of cuisines based on our data. From Italian to Japanese, uncover the culinary delights that are capturing diners' hearts.
     """)
+
     fig, ax = plt.subplots()
     fig.set_facecolor('#121212') 
+    sns.barplot(x='State', y="weighted_ratings", data=types_count, palette="mako", ax=ax)
 
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('State', color='white')
@@ -67,6 +69,7 @@ with col1:
     """)
     fig, ax = plt.subplots()
     fig.set_facecolor('#121212') 
+        sns.barplot(x='State', y="weighted_ratings", data=state_counts, palette="mako", ax=ax)
 
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('State', color='white')
