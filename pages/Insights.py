@@ -60,8 +60,8 @@ ax.set_ylabel('No of Restaurants', color='white')
 ax.set_xlabel('State', color='white')
 ax.tick_params(color='white')
 ax.title.set_color('white')
+plt.xticks(rotation=45, color='white')  # Set x-axis label color to white
 
-plt.xticks(rotation=45)
 
 
 for spine in ['top', 'right']:
