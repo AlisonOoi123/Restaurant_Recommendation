@@ -43,6 +43,9 @@ Looking for the perfect place to dine? Look no further! Our Restaurant Recommend
 Begin exploring the diverse culinary landscape and uncover hidden gastronomic treasures with Restaurant Recommender.
 ↓
 """)
+
+image = Image.open('Data/Ratings/food_cover.jpeg')
+st.image(image, use_column_width=True)
 st.markdown(""" ### Select Restaurant """)
 
 df = pd.read_csv("./Data/TripAdvisor_RestauarantRecommendation.csv")
