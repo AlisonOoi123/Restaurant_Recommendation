@@ -60,6 +60,8 @@ for i in ['top','right']:
     ax.spines[i].set_visible(False)
 plt.gcf().set_size_inches(7, 5)
 
+# Set the background color
+ax.set_facecolor('#f0f0f0')  # Change '#f0f0f0' to the color you prefer
 
 with col1:
     st.markdown("""
