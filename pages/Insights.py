@@ -21,6 +21,8 @@ df = df.drop([1744, 2866])
 df = df.reset_index(drop=True)
 df.Comments = df.Comments.fillna('')
 df.Type = df.Type.fillna(df.Type.value_counts().index[0])
+fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
+
 
 # Sidebar and main content layout
 col1, col2 = st.columns([1, 2])
