@@ -41,9 +41,9 @@ Looking for the perfect place to dine? Look no further! Our Restaurant Recommend
 ### Start Your Culinary Journey Now!
 
 Begin exploring the diverse culinary landscape and uncover hidden gastronomic treasures with Restaurant Recommender.
-↓↓↓↓↓
+↓
 """)
-
+st.markdown(""" Select Restaurant """)
 
 df = pd.read_csv("./Data/TripAdvisor_RestauarantRecommendation.csv")
 
