@@ -68,12 +68,14 @@ with col1:
     Delve into our analysis of the state with the best restaurant. We've calculated weighted average ratings to determine which state offers the ultimate dining experience, combining both quality and quantity.
     """)
     fig, ax = plt.subplots()
+    fig.set_facecolor('#121212') 
+
     sns.barplot(x='State', y="weighted_ratings", data=state_avg_ratings, palette="PuOr", ax=ax)
     ax.set_ylabel('Weighted Average Ratings', color='white')
     ax.set_xlabel('State', color='white')
     ax.tick_params(colors='white')
     ax.title.set_color('white')
-    ax.set_facecolor('black')
+    ax.set_facecolor('#121212')
     plt.xticks(rotation=45)
     plt.tight_layout()
     st.pyplot(fig)
@@ -87,13 +89,13 @@ with col2:
     """)
     fig, ax = plt.subplots()
     sns.barplot(x='State', y="weighted_ratings", data=state_total_ratings, palette="mako", ax=ax)
-    fig.set_facecolor('#000000')  # Change '#000000' to the color you prefer
+    fig.set_facecolor('#121212') 
 
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('State', color='white')
     ax.tick_params(colors='white')
     ax.title.set_color('white')
-    ax.set_facecolor('black')
+    ax.set_facecolor('#121212')
     plt.xticks(rotation=45)
     plt.tight_layout()
     st.pyplot(fig)
@@ -107,12 +109,14 @@ with col2:
     Discover the top 5 cities that are culinary hotspots. Our analysis reveals the cities where food lovers can indulge in the finest dining experiences, from bustling metropolises to charming culinary gems.
     """)
     fig, ax = plt.subplots()
+    fig.set_facecolor('#121212') 
+
     sns.barplot(x='City', y="weighted_ratings", data=city_total_ratings, palette="flare", ax=ax)
     ax.set_ylabel('Total Weighted Ratings', color='white')
     ax.set_xlabel('City', color='white')
     ax.tick_params(colors='white')
     ax.title.set_color('white')
-    ax.set_facecolor('black')
+    ax.set_facecolor('#121212')
     plt.xticks(rotation=45)
     plt.tight_layout()
     st.pyplot(fig)
