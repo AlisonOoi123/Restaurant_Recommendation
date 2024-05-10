@@ -33,7 +33,8 @@ fig.set_facecolor('#121212')
 ax.set_facecolor('#121212')
 
 types_counts.plot(kind='pie', shadow=True, cmap=plt.get_cmap('Spectral'), ax=ax)
-
+    
+    
 ax.set_ylabel('Cuisine Types', color='white')
 ax.tick_params(colors='white')
 ax.title.set_color('white')
@@ -53,11 +54,15 @@ state_counts = df['State'].value_counts()
 fig, ax = plt.subplots()
 fig.set_facecolor('#121212') 
 ax.set_facecolor('#121212')
-sns.barplot(x=state_counts.index, y=state_counts, palette="rocket", ax=ax)
+sns.barplot(x= "State" .index, y= "No of Restaurants", palette="rocket", ax=ax)
 ax.set_ylabel('No of Restaurants', color='white')
 ax.set_xlabel('State', color='white')
 ax.tick_params(color='white')
 ax.title.set_color('white')
+
+plt.xticks(rotation=45)
+
+
 for spine in ['top', 'right']:
     ax.spines[spine].set_visible(False)
 plt.gcf().set_size_inches(7, 5)
