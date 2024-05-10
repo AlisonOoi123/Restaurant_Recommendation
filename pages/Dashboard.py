@@ -37,6 +37,7 @@ ax.set_ylabel('Cuisine Types')
 with col2:
            
     st.markdown("""
+    ### 10 Most Popular Types of Cuisines
     Ever wondered what cuisines people are loving the most? Dive into our interactive visualization to explore the top 10 most popular types of cuisines based on our data. From Italian to Japanese, uncover the culinary delights that are capturing diners' hearts.
     """)
     st.pyplot(fig)
